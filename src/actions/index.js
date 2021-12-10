@@ -10,7 +10,7 @@ export const fetchSmurfs = () => {
     return (dispatch) => {
         dispatch(fetchStart());
 
-        // props.fetchStart();
+        fetchStart();
         axios.get('http://localhost:3333/smurfs')
             .then(resp => {
                 console.log(resp);
