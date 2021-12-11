@@ -13,8 +13,8 @@ export const fetchSmurfs = () => {
         fetchStart();
         axios.get('http://localhost:3333/smurfs')
             .then(resp => {
-                console.log(resp);
-                // dispatch(fetchSuccess(resp.data[0]));
+                // console.log(resp);
+                dispatch(fetchSuccess(resp[0]));
             }).catch(err => {
                 dispatch(fetchFail(err));
             })
@@ -33,12 +33,12 @@ export const fetchFail = (error) => {
     return({type: FETCH_FAIL, payload:error});
 }
 
-export const addSmurf = (smurf) => {
-    return({type: ADD_SMURF, payload:{name:smurf.name, position:smurf.position, nickname:smurf.nickname, description: smurf.description}});
+export const addSmurf = (name, position, nickname, description) => {
+    return({type: ADD_SMURF, payload:{name:name, position:position, nickname:nickname, description:description}});
 }
 
 export const addFail = () => {
-    return({type: ADD_FAIL, payload:'Name, Position, Nickname, and Description are required to submit'});
+    return({type: ADD_FAIL});
 }
 
 //Task List:

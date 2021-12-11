@@ -47,9 +47,9 @@ const reducer = (state = initialState, action)=>{
         case(ADD_FAIL):
             return({
                 ...state,
-                smurfs: {},
+                smurfs: action.payload,
                 isLoading: false,
-                error: action.payload
+                error: 'Name, Position, Nickname, and Description are required to submit'
             });
         default:
             return state;
